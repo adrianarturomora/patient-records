@@ -1,0 +1,48 @@
+MENU_PROMPT = "\nEnter 'a' to add a patient, 'b' to pull up patients, 'c' to find a patient, or 'q' to quit"
+patients = []
+
+def add_patient():
+    firstName = input("Enter The First Name of The Patient: ")
+    lastName = input("Enter The Last Name of The Patient: ")
+    birthYear = input("Enter the Year of Birth for The Patient: ")
+
+    patients.append({
+        'firstName': firstName,
+        'lastName': lastName,
+        'birthYear': birthYear
+    })
+
+def show_patients():
+    for patient in patients:
+        print_patient(patient)
+
+def print_patient(patient):
+    print(f"First Name: {patient['firstName']}")
+    print(f"Last Name: {patient['lastName']}")
+    print(f"Year of Birth: {patient['birthYear']}")
+
+def find_patient():
+    search_title = input("Enter Patients Last Name: ")
+
+    for patient in patients:
+        if patient["title"] == search_title:
+            print_patient(patient)
+
+user_options = {
+    "a": add_patient,
+    "b": show_patients,
+    "c": find_patient
+}
+
+def menu():
+    selection = input(MENU_PROMPT)
+    while selection != 'q':
+        if selection in user_options
+            selected_function = user_options[selection]
+            selected_function()
+        else:
+            print('Unknown command. Please Try Again')
+
+    selection = input(MENU_PROMPT)
+    
+    menu()
